@@ -1,0 +1,4 @@
+- vue 3 ( vue router, directive, plugins, attr, emit, event bus...)
+- pinia
+- quasar
+- vue-query

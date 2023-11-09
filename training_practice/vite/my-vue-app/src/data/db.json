@@ -1,0 +1,19 @@
+{
+  "assets": [
+    {
+      "name": "Car",
+      "price": "1234",
+      "id": 1
+    },
+    {
+      "name": "phone",
+      "price": "1234",
+      "id": 2
+    },
+    {
+      "name": "ipad2",
+      "price": "100000",
+      "id": 3
+    }
+  ]
+}

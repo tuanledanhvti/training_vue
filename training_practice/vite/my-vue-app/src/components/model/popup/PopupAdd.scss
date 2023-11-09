@@ -1,0 +1,36 @@
+.popup-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(40, 46, 51, 0.78);
+    z-index: 2;
+  
+    .icon--exit {
+      position: absolute;
+      top: 72px;
+      right: 32px;
+      z-index: 1;
+      transform: scale(3);
+      filter: invert(1);
+      cursor: pointer;
+    }
+  
+    .popup {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      max-width: 400px;
+  
+      .popup-header {
+        font-size: 26px;
+        padding-left: 16px;
+        padding-top: 16px;
+        color: gray;
+      }
+    }
+  }
+  
