@@ -1,4 +1,7 @@
 <template>
+   <p v-font-size:normal>normal</p>
+   <p v-font-size:medium>medium</p>
+   <p v-font-size:large>Large</p>
   <VTI_Button
     style="display: flex; justify-content: flex-end; margin-right: 16px"
     @clickEvent="showFormAddNewAsset"
@@ -20,7 +23,6 @@
 import VTI_Button from "../../components/common/button/Button.vue";
 import VTI_AssetList from "../../components/AssetList/AssetList.vue";
 import VTI_AssetAdd from "../../components/AssetAdd/AssetAdd.vue";
-import VTI_Dialog from "../../components/model/dialog/dialogConfirm.vue";
 
 import { useQuery, useMutation, useQueryClient } from "vue-query"; // Sử dụng ref để định nghĩa biến
 import { getAsset } from "../../api/assetApi";

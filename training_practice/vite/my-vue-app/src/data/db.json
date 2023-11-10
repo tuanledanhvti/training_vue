@@ -1,19 +1,42 @@
 {
   "assets": [
     {
-      "name": "Car",
-      "price": "1234",
-      "id": 1
-    },
-    {
       "name": "phone",
       "price": "1234",
       "id": 2
     },
     {
-      "name": "ipad2",
-      "price": "100000",
+      "name": "Car",
+      "price": "1234",
       "id": 3
+    }
+  ],
+  "company": [
+    {
+      "id": 1,
+      "name": "VTI",
+      "children": []
+    },
+    {
+      "id": 2,
+      "name": "VTI2"
+    }
+  ],
+  "depart": [
+    {
+      "id": 1,
+      "name": "D1",
+      "id_company": 1
+    },
+    {
+      "id": 2,
+      "name": "D2",
+      "id_company": 1
+    },
+    {
+      "id": 3,
+      "name": "D3",
+      "id_company": 2
     }
   ]
 }

@@ -4,26 +4,28 @@
     @clearData="clearData"
     @onSubmit="onSubmit"
   >
-    <q-input
-      filled
-      v-model="name"
-      label="Name *"
-      hint="Product's name"
-      lazy-rules
-      :rules="[(val) => (val && val.length > 0) || 'Please type something']"
-    />
+    <template #body>
+      <q-input
+        filled
+        v-model="name"
+        label="Name *"
+        hint="Product's name"
+        lazy-rules
+        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+      />
 
-    <q-input
-      filled
-      type="number"
-      v-model="price"
-      label="Price *"
-      lazy-rules
-      :rules="[
-        (val) => (val !== null && val !== '') || 'Please type number',
-        (val) => (val > 0 && val < 1000000000) || 'Please type a real number',
-      ]"
-    />
+      <q-input
+        filled
+        type="number"
+        v-model="price"
+        label="Price *"
+        lazy-rules
+        :rules="[
+          (val) => (val !== null && val !== '') || 'Please type number',
+          (val) => (val > 0 && val < 1000000000) || 'Please type a real number',
+        ]"
+      />
+    </template>
   </VTI_PopupAdd>
 </template>
 

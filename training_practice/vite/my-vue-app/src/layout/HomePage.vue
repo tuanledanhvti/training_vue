@@ -37,12 +37,12 @@
               </q-item></router-link
             >
 
-            <router-link to="/product/1">
+            <router-link to="/tree">
               <q-item clickable v-ripple>
                 <q-item-section avatar>
-                  <q-icon name="person" />
+                  <q-icon name="account_tree" />
                 </q-item-section>
-                <q-item-section> Người dùng </q-item-section>
+                <q-item-section> Phân cấp </q-item-section>
               </q-item></router-link
             >
           </q-list>
@@ -87,24 +87,25 @@ import { useDrawerStore } from "../store/drawerStore";
 //mà không cần phải truyền qua các props qua lại hoặc thông qua Event Bus
 
 const drawer = ref(false);
-const drawerRef = ref({});
-const drawerWidth = ref(200);
+const drawerRef = ref<HTMLDivElement | null>(null);
+const drawerWidth = ref<number>();
 const drawerStore = useDrawerStore();
 const eventBus = inject("eventBus");
 
 const toggleDrawer = () => {
+  
   drawer.value = !drawer.value;
   if (drawer.value == false) {
     drawerWidth.value = 0;
   } else {
-    drawerWidth.value = drawerRef.value.width;
+    drawerWidth.value = drawerRef.value?.width;
   }
-  eventBus.emit("drawerWidth", drawerWidth.value);
   drawerStore.setDrawerWidth(drawerWidth.value);
 };
 
 onMounted(() => {
-  drawerStore.setDrawerWidth(drawerRef.value.width);
+  drawerStore.setDrawerWidth(drawerRef.value?.width);
+  
 });
 </script>
 

@@ -115,5 +115,4 @@ onMounted(() => {
 </script>
 
 <style scoped>
-@import url("./AssetDetail.scss");
 </style>

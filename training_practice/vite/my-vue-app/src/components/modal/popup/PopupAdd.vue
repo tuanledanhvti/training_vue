@@ -7,16 +7,18 @@
       <div class="popup-header">{{ content }}</div>
       <div class="q-pa-md" style="max-width: 400px">
         <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
-          <slot></slot>
+          <slot name="body"></slot>
           <div>
-            <q-btn label="Create" type="submit" color="primary" />
-            <q-btn
-              label="Reset"
-              type="reset"
-              color="primary"
-              flat
-              class="q-ml-sm"
-            />
+            <slot name="footer">
+              <q-btn label="Create" type="submit" color="primary" />
+              <q-btn
+                label="Reset"
+                type="reset"
+                color="primary"
+                flat
+                class="q-ml-sm"
+              />
+            </slot>
           </div>
         </q-form>
       </div>
@@ -33,15 +35,16 @@ import {
   inject,
   defineProps,
   onMounted,
-  onUpdated,
 } from "vue";
 // ---------------- Định nghĩa props ----------------
 const props = defineProps<{
   content: string;
+  message: string;
 }>();
 
 // ---------------- Khai báo biến ----------------
 const drawerStore = useDrawerStore();
+const drawerWidth = ref({});
 const eventBus = inject("eventBus");
 const emit = defineEmits();
 
@@ -66,9 +69,7 @@ onMounted(() => {
   eventBus.on("drawerWidth", (param) => {
     drawerWidth.value = param;
   });
-  drawerWidth.value = drawerStore.width;
 });
-const drawerWidth = ref({});
 </script>
 
 <style scoped>

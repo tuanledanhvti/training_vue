@@ -46,7 +46,6 @@ onMounted(() => {
   eventBus.on("drawerWidth", (param) => {
     drawerWidth.value = param;
   });
-  drawerWidth.value = drawerStore.width;
 
   // Lấy thông tin của tài sản cần xóa
   eventBus.on("assetDelete", (param) => {
