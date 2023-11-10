@@ -9,6 +9,7 @@
       color="white"
     />
   </div>
+  {{ departList }}
 </template>
 
 <script setup lang="ts">
@@ -37,11 +38,9 @@ const getCompanyData = () => {
         });
 
         // Lấy danh sách id của các company
-        idCompanyList.value = companyList.value.map((company: Company) => {
-          return {
-            id: company.id,
-          };
-        });
+        idCompanyList.value = companyList.value
+          .map((company: Company) => `id_company=${company.id}`)
+          .join("&");
       });
     });
   } catch (error) {

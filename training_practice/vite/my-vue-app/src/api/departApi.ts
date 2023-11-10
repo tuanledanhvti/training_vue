@@ -29,13 +29,10 @@ export const deleteDepart = (id: number) => {
 };
 
 // --------------------------------- Api riêng của department ---------------------------------
-export const getDepartByCompanyId = async (idList) => {
+export const getDepartByCompanyId = async (idList: string) => {
   try {
-    idList.forEach(id => {
-      console.log(id);
-      
-    });
-    const response = await api.get(`/${endPoint}?id_company=${1}`);
+    const response = await api.get(`/${endPoint}?${idList}`);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching Data by ID:", error);
