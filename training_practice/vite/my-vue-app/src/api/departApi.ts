@@ -32,7 +32,6 @@ export const deleteDepart = (id: number) => {
 export const getDepartByCompanyId = async (idList: string) => {
   try {
     const response = await api.get(`/${endPoint}?${idList}`);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error fetching Data by ID:", error);

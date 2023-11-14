@@ -4,39 +4,67 @@
       "name": "phone",
       "price": "1234",
       "id": 2
-    },
-    {
-      "name": "Car",
-      "price": "1234",
-      "id": 3
     }
   ],
   "company": [
     {
       "id": 1,
-      "name": "VTI",
-      "children": []
+      "name": "VTI3",
+      "is_parent": true
     },
     {
       "id": 2,
-      "name": "VTI2"
+      "name": "VTI22",
+      "is_parent": true
     }
   ],
   "depart": [
     {
       "id": 1,
       "name": "D1",
-      "id_company": 1
-    },
-    {
-      "id": 2,
-      "name": "D2",
-      "id_company": 1
+      "id_company": 1,
+      "is_parent": true
     },
     {
       "id": 3,
-      "name": "D3",
-      "id_company": 2
+      "name": "D2123sdfg",
+      "id_company": 1,
+      "is_parent": true
+    },
+    {
+      "id": 4,
+      "name": "D45",
+      "id_company": 1,
+      "is_parent": true
+    },
+    {
+      "id": 11,
+      "name": "D",
+      "id_company": 1,
+      "is_parent": true
+    },
+    {
+      "id": 14,
+      "name": "D1234",
+      "id_company": 2,
+      "is_parent": true
+    }
+  ],
+  "group": [
+    {
+      "id": 20,
+      "name": "Group1",
+      "id_depart": 1
+    },
+    {
+      "id": 21,
+      "name": "Group2",
+      "id_depart": 3
+    },
+    {
+      "id": 22,
+      "name": "Group4",
+      "id_depart": 5
     }
   ]
 }

@@ -5,6 +5,25 @@ const VTI_Resource = {
         Header: "Thêm mới tài sản",
       },
     },
+    Tree: {
+      Add: "Thêm mới phòng ban",
+      Update: {
+        CompanyHint: "Cập nhật công ty",
+        DepartHint: "Cập nhật phòng ban",
+        GroupHint: "Cập nhật nhóm",
+      },
+    },
+  },
+  Tree: {
+    Header: {
+      Root: "root",
+      Generic: "generic",
+    },
+  },
+  TypeObject: {
+    Company: "company",
+    Depart: "depart",
+    Group: "group",
   },
 };
 

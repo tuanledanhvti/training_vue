@@ -36,7 +36,7 @@ export const getDataById = async (endPoint, id) => {
 // Cập nhật dữ liệu
 export const updateData = async (endPoint, id, updatedData) => {
   try {
-    const response = await api.put(`/${endPoint}/${id}`, updatedData);
+    const response = await api.patch(`/${endPoint}/${id}`, updatedData);
     return response.data;
   } catch (error) {
     console.error("Error updating Data:", error);

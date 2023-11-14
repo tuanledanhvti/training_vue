@@ -1,7 +1,7 @@
 <template>
-   <p v-font-size:normal>normal</p>
-   <p v-font-size:medium>medium</p>
-   <p v-font-size:large>Large</p>
+  <p v-font-size:normal>normal</p>
+  <p v-font-size:medium>medium</p>
+  <p v-font-size:large>Large</p>
   <VTI_Button
     style="display: flex; justify-content: flex-end; margin-right: 16px"
     @clickEvent="showFormAddNewAsset"
@@ -24,7 +24,7 @@ import VTI_Button from "../../components/common/button/Button.vue";
 import VTI_AssetList from "../../components/AssetList/AssetList.vue";
 import VTI_AssetAdd from "../../components/AssetAdd/AssetAdd.vue";
 
-import { useQuery, useMutation, useQueryClient } from "vue-query"; // Sử dụng ref để định nghĩa biến
+import { useQuery, useMutation, useQueryClient } from "vue-query";
 import { getAsset } from "../../api/assetApi";
 import { ref, inject, onUpdated } from "vue";
 import { deleteAsset, createAsset } from "../../api/assetApi";
@@ -52,13 +52,13 @@ const showFormAddNewAsset = (isAddNew: Boolean) => {
 
 // Thực hiện hành động thêm mới
 const addNewAsset = async (createdAssetData: Asset) => {
-  await createAssetMutation.mutateAsync(createdAssetData); 
+  await createAssetMutation.mutateAsync(createdAssetData);
 };
 
 // useMutation được thiết kế đặc biệt để xử lý các hành động có thể gây ra sửa đổi hoặc cập nhật dữ liệu
 // chẳng hạn như thêm, sửa đổi hoặc xóa bản ghi
 const createAssetMutation = useMutation(
-  (createdAssetData) => createAsset(createdAssetData),
+  (createdAssetData: Asset) => createAsset(createdAssetData),
   {
     onSuccess: () => {
       isShowAdd.value = false;

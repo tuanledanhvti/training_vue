@@ -2,10 +2,10 @@
   <div class="dialog-container" :style="`margin-left: ${drawerWidth}px`">
     <div class="dialog">
       <div class="q-pa-md q-gutter-sm">
-        <q-banner dense class="bg-white text-black" v-if="asset">
+        <q-banner dense class="bg-white text-black" v-if="name">
           Bạn có muốn xóa tài sản
           <i
-            ><strong>{{ asset.name }}</strong></i
+            ><strong>{{ name }}</strong></i
           >
           ?
           <template v-slot:action>
@@ -21,13 +21,12 @@
 <script setup lang="ts">
 import { ref, inject, onMounted, onUpdated, defineEmits } from "vue";
 import { useDrawerStore } from "../../../store/drawerStore";
-import { Asset } from "../../../api/model/types";
 const emit = defineEmits();
 
 const drawerStore = useDrawerStore();
 const eventBus = inject("eventBus");
 const drawerWidth = ref({});
-const asset = ref<Asset | null>(null);
+const name = ref<string | null>();
 
 // ---------------- Event ----------------
 // Xác nhận thực hiện
@@ -48,8 +47,8 @@ onMounted(() => {
   });
 
   // Lấy thông tin của tài sản cần xóa
-  eventBus.on("assetDelete", (param) => {
-    asset.value = param;
+  eventBus.on("itemDelete", (param) => {
+    name.value = param;
   });
 });
 

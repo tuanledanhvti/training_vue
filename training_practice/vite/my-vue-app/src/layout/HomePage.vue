@@ -37,6 +37,14 @@
               </q-item></router-link
             >
 
+            <router-link to="/tree_quasar">
+              <q-item clickable v-ripple>
+                <q-item-section avatar>
+                  <q-icon name="account_tree" />
+                </q-item-section>
+                <q-item-section> Phân cấp quasar </q-item-section>
+              </q-item></router-link
+            >
             <router-link to="/tree">
               <q-item clickable v-ripple>
                 <q-item-section avatar>

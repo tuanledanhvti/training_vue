@@ -38,6 +38,7 @@ import { defineProps, defineEmits, inject } from "vue";
 import { useRouter } from "vue-router";
 
 import { Asset } from "../../api/model/types";
+import {Emitter,EventType} from "mitt";
 
 // ---------------- Định nghĩa props ----------------
 const props = defineProps<{
@@ -47,7 +48,8 @@ const props = defineProps<{
 // ---------------- Khai báo biến ----------------
 const router = useRouter();
 const emit = defineEmits();
-const eventBus = inject("eventBus");
+
+const eventBus = inject("eventBus") as Emitter<Record<EventType, unknown>>
 
 // ---------------- Event ----------------
 // Lấy chi tiết tài sản
@@ -57,7 +59,7 @@ const viewDetail = (id: number) => {
 
 // Xóa tài sản
 const deleteAsset = (asset: Asset) => {
-  eventBus.emit("assetDelete", asset);
+  eventBus.emit("itemDelete", asset.name);
   emit("delete", asset);
 };
 </script>
