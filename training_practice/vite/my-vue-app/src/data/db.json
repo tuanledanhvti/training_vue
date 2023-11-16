@@ -9,62 +9,34 @@
   "company": [
     {
       "id": 1,
-      "name": "VTI3",
-      "is_parent": true
-    },
-    {
-      "id": 2,
-      "name": "VTI22",
+      "name": "VTI79",
       "is_parent": true
     }
   ],
   "depart": [
     {
-      "id": 1,
-      "name": "D1",
       "id_company": 1,
-      "is_parent": true
+      "name": "2345",
+      "is_parent": true,
+      "id": 4
     },
     {
-      "id": 3,
-      "name": "D2123sdfg",
       "id_company": 1,
-      "is_parent": true
-    },
-    {
-      "id": 4,
-      "name": "D45",
-      "id_company": 1,
-      "is_parent": true
-    },
-    {
-      "id": 11,
-      "name": "D",
-      "id_company": 1,
-      "is_parent": true
-    },
-    {
-      "id": 14,
-      "name": "D1234",
-      "id_company": 2,
-      "is_parent": true
+      "name": "23452345",
+      "is_parent": true,
+      "id": 5
     }
   ],
   "group": [
     {
-      "id": 20,
-      "name": "Group1",
-      "id_depart": 1
+      "id_depart": 5,
+      "name": "2345",
+      "id": 1
     },
     {
-      "id": 21,
-      "name": "Group2",
-      "id_depart": 3
-    },
-    {
-      "id": 22,
-      "name": "Group4",
-      "id_depart": 5
+      "id_depart": 4,
+      "name": "52345",
+      "id": 2
     }
   ]
 }

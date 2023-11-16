@@ -6,11 +6,23 @@ const VTI_Resource = {
       },
     },
     Tree: {
-      Add: "Thêm mới phòng ban",
+      Add: {
+        CompanyHint: "Thêm mới công ty",
+        DepartHint: "Thêm mới phòng ban",
+        GroupHint: "Thêm mới nhóm",
+      },
       Update: {
-        CompanyHint: "Cập nhật công ty",
-        DepartHint: "Cập nhật phòng ban",
-        GroupHint: "Cập nhật nhóm",
+        CompanyHint: "Cập nhật tên công ty",
+        DepartHint: "Cập nhật tên phòng ban",
+        GroupHint: "Cập nhật tên nhóm",
+      },
+      Label:{
+        CheckBox:{
+          Parent: "Chọn làm thư mục"
+        }
+      },
+      Validate: {
+        Empty: "Không được bỏ trống",
       },
     },
   },

@@ -13,7 +13,7 @@
     >
       <PopupEdit
         :prop_id="prop.node.id"
-        :hint="VTI_Resource.Popup.Tree.Add"
+        :hint="VTI_Resource.Popup.Tree.Add.DepartHint"
         @clickEventPopupEdit="addItem"
       ></PopupEdit>
     </q-icon>

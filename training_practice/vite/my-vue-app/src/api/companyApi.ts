@@ -74,54 +74,61 @@ export const getCompanyAndDepart = async (idList: string) => {
 };
 
 // --------------------------------- Api riêng của company có thêm group ---------------------------------
-export const getTree = async (idDepartList: string) => {
+export const getTree = async (
+  idDepartList: string
+): Promise<TreeData[] | void> => {
   try {
-    const responseDepart = await api.get(`/${endPointDepart}?${idDepartList}`);
     const companyList = await getData(endPoint);
-    const companyData = companyList.map((company) => {
-      return {
-        id: company.id,
-        label: company.name,
-        is_parent: company.is_parent,
-        is_show_children: true,
-      };
-    });
-    const idGroupList = responseDepart.data
-      .map((depart: Depart) => `id_depart=${depart.id}`)
-      .join("&");
-    const responseGroup = await api.get(`/${endPointGroup}?${idGroupList}`);
-    const groupData = responseGroup.data.map((group: Group) => {
-      return {
-        id: group.id,
-        label: group.name,
-        id_depart: group.id_depart,
-      };
-    });
+    if (companyList && companyList.length > 0) {
+      const companyData = companyList.map((company) => {
+        return {
+          id: company.id,
+          label: company.name,
+          is_parent: company.is_parent,
+          is_show_children: company.is_parent === true,
+        };
+      });
 
-    const departDTO = responseDepart.data.map((depart) => {
-      return {
-        id: depart.id,
-        label: depart.name,
-        id_company: depart.id_company,
-        is_parent: depart.is_parent,
-        is_show_children: true,
-      };
-    });
-
-    const departData: DepartTree = departDTO.map((depart: DepartDTO) => {
-      const children = groupData.filter(
-        (child: Group) => child.id_depart === depart.id
+      const responseDepart = await api.get(
+        `/${endPointDepart}?${idDepartList}`
       );
-      return { ...depart, children };
-    });
+      if (responseDepart.data && responseDepart.data.length > 0) {
+        const idGroupList = responseDepart.data
+          .map((depart: Depart) => `id_depart=${depart.id}`)
+          .join("&");
+        const responseGroup = await api.get(`/${endPointGroup}?${idGroupList}`);
+        const groupData = responseGroup.data.map((group: Group) => {
+          return {
+            id: group.id,
+            label: group.name,
+            id_depart: group.id_depart,
+          };
+        });
 
-    const tree: TreeData[] = companyData.map((company: CompanyDTO) => {
-      const children = departData.filter(
-        (child: DepartTree) => child.id_company === company.id
-      );
-      return { ...company, children };
-    });
-    return tree;
+        const departDTO = responseDepart.data.map((depart) => {
+          return {
+            id: depart.id,
+            label: depart.name,
+            id_company: depart.id_company,
+            is_parent: depart.is_parent,
+            is_show_children: depart.is_parent === true,
+          };
+        });
+        const departData: DepartTree[] = departDTO.map((depart: DepartDTO) => {
+          const children = groupData.filter(
+            (child: Group) => child.id_depart === depart.id
+          );
+          return { ...depart, children };
+        });
+        const tree: TreeData[] = companyData.map((company: CompanyDTO) => {
+          const children = departData.filter(
+            (child: DepartTree) => child.id_company === company.id
+          );
+          return { ...company, children };
+        });
+        return tree;
+      }
+    }
   } catch (error) {
     console.error("Error fetching Data by ID:", error);
     throw error; // Rethrow lỗi để xử lý ở nơi sử dụng hàm này

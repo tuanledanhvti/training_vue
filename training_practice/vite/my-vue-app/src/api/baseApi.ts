@@ -15,7 +15,11 @@ export const api = axios.create({
 export const getData = async (endPoint) => {
   try {
     const response = await api.get(`/${endPoint}`);
-    return response.data;
+    if (response && response.data && response.data.length > 0) {
+      return response.data;
+    } else {
+      return [];
+    }
   } catch (error) {
     console.error("Error fetching Data by ID:", error);
     throw error; // Rethrow lỗi để xử lý ở nơi sử dụng hàm này
